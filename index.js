@@ -44,7 +44,7 @@ async function handleEndpoint(url, folder) {
         mkdirSync(folder);
       }
 
-      writeFileSync(`out/${folder}/${version}.json`, text);
+      writeFileSync(`${folder}/${version}.json`, text);
       out[version] = json;
     }
   }
@@ -55,7 +55,7 @@ async function handleEndpoint(url, folder) {
 async function processEndpoints() {
   for (const url of endpoints) {
     try {
-      let folder = url.split(".")[0];
+      let folder = `out/${url.split(".")[0]}`;
       let out = await handleEndpoint(url, folder);
       api[folder] = out;
     } catch (error) {
