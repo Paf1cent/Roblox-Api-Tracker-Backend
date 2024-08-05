@@ -44,7 +44,7 @@ async function handleEndpoint(url, folder) {
         mkdirSync(folder);
       }
 
-      writeFileSync(`${folder}/${version}.json`, text);
+      writeFileSync(`individual/${folder}/${version}.json`, text);
       out[version] = json;
     }
   }
